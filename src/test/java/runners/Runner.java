@@ -62,8 +62,12 @@ public class Runner {
 
                 Amacimiz Feature dosyasini calistirmak degil,
                 sadece eksik step'lere ait kodlari olusturmak ise
+                (sarı renkle yazılı satırların adımlarını tamamlamak için)
                 Runner class'inda dryRun = true yapip
                 Runner class'ini calistiririz
+
+                dryRun'ı sadece eksik adımları tamamlamak için, kontrol
+                etmek için true yaparız
 
                 dryRun= true dedigimizde
                 Cucumber testleri calistirmaz, sadece eksik adim var mi diye kontrol eder
