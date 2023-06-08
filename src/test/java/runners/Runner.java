@@ -6,6 +6,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)//JUnit'ten geliyor
 @CucumberOptions(//feature dosyaları ile stepdefinitions class'larını birbirine bağlar
+
+        plugin = {"html:target/cucumber-reports.html",
+                "json:target/json-reports/cucumber.json",
+                "junit:target/xml-report/cucumber.xml"
+        },
         features = "src/test/resources/features",//feature dosyalarının dosya yolu (feature sağ tuş ve copy path)
         glue = "stepdefinitions",//feature dosyalarının bağlı olduğu (çalıştıracak olan) kodlar nerede ise
                                 //onun ismi yazılır
@@ -14,7 +19,7 @@ import org.junit.runner.RunWith;
         dryRun = false
 )
 
-public class Runner {
+public class Runner {//Runner' ı dryRun=false iken çalıştırırız
 
     /*
         Cucumber'da Runner Class'i istedigimiz testleri calistirmak
@@ -62,7 +67,8 @@ public class Runner {
 
                 Amacimiz Feature dosyasini calistirmak degil,
                 sadece eksik step'lere ait kodlari olusturmak ise
-                (sarı renkle yazılı satırların adımlarını tamamlamak için)
+                (yani beyaz olan satırları çalıştırmadan
+                sarı renkle yazılı satırların adımlarını tamamlamak için)
                 Runner class'inda dryRun = true yapip
                 Runner class'ini calistiririz
 
