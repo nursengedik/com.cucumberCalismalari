@@ -12,8 +12,8 @@ import org.junit.runner.RunWith;
                 "junit:target/xml-report/cucumber.xml"
         },
         features = "src/test/resources/features",//feature dosyalarının dosya yolu (feature sağ tuş ve copy path)
-        glue = "stepdefinitions",//feature dosyalarının bağlı olduğu (çalıştıracak olan) kodlar nerede ise
-                                //onun ismi yazılır
+        glue = "stepdefinitions",//feature dosyalarının bağlı olduğu (çalıştıracak olan) kodlar nerede ise (dosyada
+                                //ise) onun ismi (package ismi) yazılır
         tags = "@regression and @smoke",//hangi notasyondaki testlerin çalışmasını istiyorsak tags'a onu yazarız
                                        //sadece @smoke veya @regression da yazabiliriz
         dryRun = false
@@ -37,12 +37,12 @@ public class Runner {//Runner' ı dryRun=false iken çalıştırırız
         @CucumberOptions ise framework'umuzde gerekli ayarlari yapar
 
         features : feature dosyalarimizin bulundugu konumu gosterir
-                   dikkat edilirse tek tek feature dosyalarini degil
+                   dikkat edilirse (*) tek tek feature dosyalarini degil
                    tum feature dosyalarini iceren klasorun yolunu yaziyoruz
         glue : feature dosyalari ile bagli olan
                Java method'larinin yerini gosterir
                Burada da tek tek class'lari degil,
-               tum class'lari iceren package'in adresini yazariz
+               (*) tum class'lari iceren package'in adresini yazariz
                boylece ilgili step hangi class altinda olursa olsun
                cucumber bulup calistirir
         tags : calistirilacak Feature veya Scenerio(lari) isaretlemek icin kullanilir

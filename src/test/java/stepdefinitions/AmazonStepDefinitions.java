@@ -87,6 +87,8 @@ public class AmazonStepDefinitions {
     public void saniyeBekler(int beklenecekSaniye) {
 
         // cucumber sayi yazildiginda direk parametre olarak kabul eder
+        //(Feature: US1004 Steplerde parametre kullanilabilmeli
+        //Scenario: TC08 Amazon Nutella Testi)
 
         try {
             Thread.sleep(beklenecekSaniye*1000);

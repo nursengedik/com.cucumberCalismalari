@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="11.875" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="US1002 Amazon Title Testi" name="TC04 Kullanıcı amazon sayfasinin title'nin dogru oldugunu kontrol eder" time="11.247">
+<testsuite name="Cucumber" time="9.063" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="US1002 Amazon Title Testi" name="TC04 Kullanıcı amazon sayfasinin title'nin dogru oldugunu kontrol eder" time="8.424">
 <system-out><![CDATA[
 Given Kullanici amazon anasayfaya gider.....................................passed
 Then Title'in Amazon icerdigini test eder...................................passed
