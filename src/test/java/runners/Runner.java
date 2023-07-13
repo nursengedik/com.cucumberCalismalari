@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)//JUnit'ten geliyor
 @CucumberOptions(//feature dosyaları ile stepdefinitions class'larını birbirine bağlar
+                //çünkü feature dosyaları stepdefinitions (java kodları) dosyaları olmadan çalışmaz
 
         plugin = {"html:target/cucumber-reports.html",
                 "json:target/json-reports/cucumber.json",

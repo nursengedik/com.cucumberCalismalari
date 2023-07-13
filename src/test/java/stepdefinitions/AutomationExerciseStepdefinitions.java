@@ -15,15 +15,17 @@ public class AutomationExerciseStepdefinitions {
 
     AutoExerPage autoExerPage = new AutoExerPage();
     Faker faker = new Faker();
-    String emailAdress;
-    String firstName;
-    Actions actions;
+    String emailAdress;//email'ı kaydetmek istiyorsak class levele'de obje oluşturulur
+    String firstName;//tekrar lazım olduğu için kaydedilir
+    Actions actions;//class levelde oluşturulan objelerde sorun cıkabildiği için burada obje
+    //tanımlanır, methodun içinde de değer atanır (36.satır)
 
     @Given("user sign up linkine tiklar")
     public void user_sign_up_linkine_tiklar() {
         autoExerPage.signUpLinki.click();
     }
-
+    //page sayfasındaki locator (lokeytlere) ulaşabilmek için calass levelde AutoExerPage'den
+    //obje oluşturulur
 
     @Given("signUp butonuna basar")
     public void sign_up_butonuna_basar() {
@@ -36,13 +38,13 @@ public class AutomationExerciseStepdefinitions {
         actions.click(autoExerPage.mrButonu)
                 .sendKeys(Keys.TAB)
                 .sendKeys(Keys.TAB)
-                .sendKeys(faker.internet().password())
+                .sendKeys(faker.internet().password())//şifreyi kaydetmeye gerek yok
                 .sendKeys(Keys.TAB)
-                .sendKeys("7")
+                .sendKeys("7")//day
                 .sendKeys(Keys.TAB)
-                .sendKeys("May")
+                .sendKeys("May")//month
                 .sendKeys(Keys.TAB)
-                .sendKeys("2000").perform();
+                .sendKeys("2000").perform();//year
         Thread.sleep(1000);
         actions.sendKeys(Keys.PAGE_DOWN)
                 .sendKeys(Keys.TAB)
@@ -50,7 +52,7 @@ public class AutomationExerciseStepdefinitions {
                 .sendKeys(Keys.TAB)
                 .sendKeys(firstName)
                 .sendKeys(Keys.TAB)
-                .sendKeys(faker.name().lastName())
+                .sendKeys(faker.name().lastName())//kaydetmediğimiz için faker üzerinden gönderiyoruz
                 .sendKeys(Keys.TAB)
                 .sendKeys(faker.company().name())
                 .sendKeys(Keys.TAB)
@@ -70,8 +72,10 @@ public class AutomationExerciseStepdefinitions {
     }
     @Given("user Create Account butonuna basar")
     public void user_create_account_butonuna_basar() {
+
         autoExerPage.createAccountButonu.click();
     }
+
     @Then("hesap olustugunu test edin")
     public void hesap_olustugunu_test_edin() {
         Assert.assertTrue(autoExerPage.accountCreatedYaziElementi.isDisplayed());
@@ -81,8 +85,8 @@ public class AutomationExerciseStepdefinitions {
     public void userCreateAnAccountBolumuneNameVeEmailAdresiGirer() {
         firstName=faker.name().firstName();
         autoExerPage.signUpNameKutusu.sendKeys(firstName);
-        emailAdress=faker.internet().emailAddress();
-        autoExerPage.signUpEmailKutusu.sendKeys(emailAdress);
+        emailAdress=faker.internet().emailAddress();//email'ı atama yaparak kaydettik
+        autoExerPage.signUpEmailKutusu.sendKeys(emailAdress);//burada da göndermiş olduk
     }
 
     @Then("Login to your account bolumunde email kutusuna @isareti olmayan email adresi yazar")

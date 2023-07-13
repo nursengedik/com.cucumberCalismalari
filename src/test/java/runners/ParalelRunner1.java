@@ -17,7 +17,8 @@ import org.junit.runner.RunWith;
         dryRun = false
 )
 
-public class ParalelRunner1 {
+public class ParalelRunner1 {//Runner class'ının özelliği methodyn içine yazacağımız kodlar değil
+                            //class'ın başına ekleyeceğimiz iki notasyondur
 
 
 }
