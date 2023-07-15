@@ -59,14 +59,13 @@ public class GuruStepdefinitions {
 
         // satir sayisini bulalim
 
-
         int satirSayisi= guru99Page.satirlarListesi.size();
 
         for (int i = 1; i <satirSayisi ; i++) {
-            String dinamikXpath= "//tbody/tr["+ i +"]/td[1]";
+            String dinamikXpath= "//tbody/tr["+ i +"]/td[1]";//dinamik
             String satirdakiSirketIsmi=
-                    Driver.getDriver().findElement(By.xpath(dinamikXpath)).getText();
-            if (satirdakiSirketIsmi.equalsIgnoreCase(istenenSirket)){
+                    Driver.getDriver().findElement(By.xpath(dinamikXpath)).getText();//satırdaki
+            if (satirdakiSirketIsmi.equalsIgnoreCase(istenenSirket)){               //şirket ismi
                 dinamikXpath ="//tbody/tr["+ i +"]/td[3] ";
                 String istenenSirketPreValue=
                         Driver.getDriver().findElement(By.xpath(dinamikXpath)).getText();

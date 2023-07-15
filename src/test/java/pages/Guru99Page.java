@@ -22,7 +22,7 @@ public class Guru99Page {
     @FindBy(xpath = "//iframe[@class='faktor-iframe-wrapper']")//cookies bir iframe
     public WebElement cookiesIFrame;
 
-    @FindBy(xpath = "//tbody/tr")
+    @FindBy(xpath = "//tbody/tr")//satır sayısı
     public List<WebElement> satirlarListesi;
 
 }
