@@ -16,9 +16,10 @@ public class Guru99Page {
     public WebElement acceptCookies;
 
     @FindBy(xpath = "//tbody/tr/td[1]")
-    public List<WebElement> sirketElementList;
+    public List<WebElement> sirketElementList;//bu element bize liste getireceği için
+                                             //WebElement'lerden oluşan, içeren List oluşturulur
 
-    @FindBy(xpath = "//iframe[@class='faktor-iframe-wrapper']")
+    @FindBy(xpath = "//iframe[@class='faktor-iframe-wrapper']")//cookies bir iframe
     public WebElement cookiesIFrame;
 
     @FindBy(xpath = "//tbody/tr")

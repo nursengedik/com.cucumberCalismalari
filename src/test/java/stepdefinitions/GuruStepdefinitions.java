@@ -15,19 +15,26 @@ import java.util.List;
 
 public class GuruStepdefinitions {
 
-    List<String> sirketListesi = new ArrayList<>();
-
+    List<String> sirketListesi = new ArrayList<>();//obje olarak oluşturmamızın nedeni başka bir
+                                                  //methodda kullanılacağı için
     Guru99Page guru99Page = new Guru99Page();
+
     @Given("guru99 sayfasinda Cookies kabul eder")
     public void guru99_sayfasinda_cookies_kabul_eder() {
         Driver.getDriver().switchTo().frame(guru99Page.cookiesIFrame);
+        //cookies'ı kabul etmeden önce iframe (ayfıreym) geçiş yaparız
         guru99Page.acceptCookies.click();
     }
+
     @Then("Company listesini consola yazdirir")
     public void company_listesini_consola_yazdirir() {
 
         sirketListesi = ReusableMethods.stringListeCevir(guru99Page.sirketElementList);
         System.out.println(sirketListesi);
+        //Guru99Page'deki WebElementlerden oluşan bir List'i burada direk çağırarak yazdıramayız
+        //yazdırabilmek için ReusableMethod'dan ReusableMethods.stringListeCevir() methodu
+        //kullanılarak List, string bir listeye çevrilerek kaydedilir ve yazdırılır
+        //for loop kullanmaktan daha kolay ve kısa bir yöntem
 
     }
 
@@ -40,6 +47,7 @@ public class GuruStepdefinitions {
     @Then("tum sayfa Screenshot alir")
     public void tumSayfaScreenshotAlir() throws IOException {
         ReusableMethods.getScreenshot("Guru99");
+        //fotoğraflama ReusableMethods.getScreenshot() methodu kullanılarak da yapılabilir
     }
 
     @And("{string} Prev.Close degerini yazdirir")
